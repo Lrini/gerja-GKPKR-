@@ -24,16 +24,8 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Bootslander - v4.7.1
-  * Template URL: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -54,25 +46,7 @@
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="#pricing">Schedule</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -389,79 +363,99 @@
       <div class="container">
 
         <div class="section-title" data-aos="fade-up">
-          <h2>Pricing</h2>
-          <p>Check our Pricing</p>
+          <h2>Schedule</h2>
+          <p>Check our Schedule</p>
         </div>
 
         <div class="row" data-aos="fade-left">
 
-          <div class="col-lg-3 col-md-6">
-            <div class="box" data-aos="zoom-in" data-aos-delay="100">
-              <h3>Free</h3>
-              <h4><sup>$</sup>0<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li class="na">Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
+        <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
+        <?php
+                $koneksi = new mysqli("localhost", "root", "", "gereja");
+                $data = mysqli_query($koneksi,"SELECT * FROM minggu ORDER BY id DESC LIMIT 1");
+                while($d = mysqli_fetch_array($data)){
+            ?>
             <div class="box featured" data-aos="zoom-in" data-aos-delay="200">
-              <h3>Business</h3>
-              <h4><sup>$</sup>19<span> / month</span></h4>
+              <h3>Ibadah Utama</h3>
               <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li>
+              <li>Pengkhotbah: <?php echo $d ['khotbah'] ?></li>
+                <li>Liturgis: <?php echo $d ['liturgis'] ?> </li>
+                <li>Pujian: <?php echo $d ['pujian'] ?></li>
+                <li>Pemusik: <?php echo $d ['pemusik'] ?> </li>
+                <li>Persembahan: <?php echo $d ['persembahan'] ?></li>
+                <li>Operator: <?php echo $d ['operator'] ?></li>
               </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
             </div>
+            <?php
+                }
+            ?>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+          <?php
+                $koneksi = new mysqli("localhost", "root", "", "gereja");
+                $data = mysqli_query($koneksi,"SELECT * FROM wanita ORDER BY id DESC LIMIT 1");
+                while($d = mysqli_fetch_array($data)){
+            ?>
+            <div class="box" data-aos="zoom-in" data-aos-delay="100">
+              <h3>Ibadah Wanita</h3>
+              <ul>
+                <li>Pengkhotbah: <?php echo $d ['khotbah'] ?> </li>
+                <li>Liturgis: <?php echo $d ['liturgis'] ?> </li>
+                <li>Pemusik: <?php echo $d ['pemusik'] ?> </li>
+                <li>Liturgis: <?php echo $d ['liturgis'] ?> </li>
+                <li>Operator: <?php echo $d ['operator'] ?> </li>
+                <li>Persembahan: <?php echo $d ['persembahan'] ?></li>
+              </ul> 
+            </div>
+            <?php
+                }
+            ?>
           </div>
 
           <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+          <?php
+                $koneksi = new mysqli("localhost", "root", "", "gereja");
+                $data = mysqli_query($koneksi,"SELECT * FROM pemuda ORDER BY id DESC LIMIT 1");
+                while($d = mysqli_fetch_array($data)){
+            ?>
             <div class="box" data-aos="zoom-in" data-aos-delay="300">
-              <h3>Developer</h3>
-              <h4><sup>$</sup>29<span> / month</span></h4>
+              <h3>Ibadah Pemuda</h3>
               <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
+                <li>Pengkhotbah: <?php echo $d ['khotbah'] ?> </li>
+                <li>Liturgis: <?php echo $d ['liturgis'] ?> </li>
+                <li>Pemusik: <?php echo $d ['pemusik'] ?> </li>
+                <li>Liturgis: <?php echo $d ['liturgis'] ?> </li>
+                <li>Operator: <?php echo $d ['operator'] ?> </li>
+                <li>Persembahan: <?php echo $d ['persembahan'] ?></li>
+              </ul> 
             </div>
+            <?php
+                } 
+            ?>
           </div>
 
-          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-            <div class="box" data-aos="zoom-in" data-aos-delay="400">
-              <span class="advanced">Advanced</span>
-              <h3>Ultimate</h3>
-              <h4><sup>$</sup>49<span> / month</span></h4>
+         <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+          <?php
+                $koneksi = new mysqli("localhost", "root", "", "gereja");
+                $data = mysqli_query($koneksi,"SELECT * FROM doa ORDER BY id DESC LIMIT 1");
+                while($d = mysqli_fetch_array($data)){
+            ?>
+            <div class="box" data-aos="zoom-in" data-aos-delay="300">
+              <h3>Ibadah Pemuda</h3>
               <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
+                <li>Pengkhotbah: <?php echo $d ['khotbah'] ?> </li>
+                <li>Liturgis: <?php echo $d ['liturgis'] ?> </li>
+                <li>Pemusik: <?php echo $d ['pemusik'] ?> </li>
+                <li>Liturgis: <?php echo $d ['liturgis'] ?> </li>
+                <li>Operator: <?php echo $d ['operator'] ?> </li>
+                <li>Persembahan: <?php echo $d ['persembahan'] ?></li>
+              </ul> 
             </div>
+            <?php
+                } 
+            ?>
+          </div>
           </div>
 
         </div>
